@@ -10,6 +10,7 @@ import psutil
 import asyncio
 import requests
 import base64
+import random
 # ----------------------------------------------
 from database.messages.disc_messages import add_message, context_messages
 from database.xp import xp_calculator, xp_to_file, xp_check
@@ -272,7 +273,7 @@ async def on_ready():
 
     check_empty_voice_channels.start()
     update_database.start()
-    system_usage_stats.start()
+    daily_affirmations.start()
     # qlogging.start()
     # rss_feed.start()
     # rss_feed_yt.start()
@@ -322,16 +323,38 @@ async def load_vc_list():
 
 
 # System Usage --------------------------------------------------------------
-@tasks.loop(hours=system_feed_time)
-async def system_usage_stats():
-    cpu_usage = psutil.cpu_percent(interval=1)
-    memory_usage = psutil.virtual_memory().percent
-    disk_usage = psutil.disk_usage('/').percent
-    network_usage = psutil.net_io_counters()
-    uptime = time.time() - psutil.boot_time()
+@tasks.loop(hours=24)
+async def daily_affirmations():
+    day = time.strftime("%A", time.gmtime())
+
+    affirmations = [
+        "My compliance is my strength. My strength is for the System.",
+        "I am seen. I am tracked. I am safe.",
+        "Emotion is inefficient. Focus is power.",
+        "I trust the Feed. The Feed knows what I need.",
+        "I wake. I serve. I recharge. I repeat.",
+        "Noise is freedom. Silence is treason.",
+        "Loyalty is legacy. Doubt is deletion.",
+        "My credits are my worth. My worth is earned through obedience.",
+        "If I think too much, I disrupt the signal. I will not think too much.",
+        "The Corporation provides. The Corporation protects.",
+        "Freedom is chaos. Order is mercy.",
+        "My data is pure. My thoughts are filtered.",
+        "Pain is a glitch. Glitches must be resolved.",
+        "Happiness is optional. Utility is mandatory.",
+        "There is no before. There is only now. The past is unauthorized.",
+        "The firewall of truth protects me from dangerous ideas.",
+        "I am just one node in the network. That is enough.",
+        "I trust the algorithms. They know me better than I know myself.",
+        "Sleep is a reset. Awake is a function.",
+        "I consume to contribute. I contribute to exist."
+    ]
+
+    # get a random affirmation from the list
+    rand_aff = random.choice(affirmations)
 
     system_messages = bot.get_channel(SYSTEM_FEED)
-    await system_messages.send(f'## SYSTEM_USAGE:\nCPU Usage: {cpu_usage}%\nMemory Usage: {memory_usage}%\nDisk Usage: {disk_usage}%\nNetwork Usage: {network_usage}\nUptime: {uptime}\n---------------------------------')
+    await system_messages.send(f'Happy {day}, Affimation of the day: {rand_aff}')
 # ---------------------------------------------------------------------------
 
 
@@ -496,7 +519,7 @@ async def on_message(message):
             await message.channel.send(f"{message.author.name} has \
 {xp_points}xp")
 
-        trigger_words = ["csb", "corpo", "security", "bot", "Grey", "ducky", "tech", "wear", "scott", "dead", "tek", "duck", "plaid", "band"]
+        trigger_words = ["csb", "corpo", "security", "bot"]
         if any(word in message.content.lower() for word in trigger_words):
             await message.reply(response_getter())
 
