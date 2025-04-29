@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Showcase of my GitHub profile and projects">
+    <meta name="author" content="Ducky Duckerson">
+    <title>ITSLIT.BET</title> 
+    <style>
+        /* Main Body Styles (Soft Dark Mode) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;  /* Soft dark background */
+            color: #e4e4e4;  /* Light gray text for good contrast */
+        }
+
+        header {
+            background-color: #121212;  /* Dark background for header */
+            color: #ffdd57;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #ff17f4;  /* Neon pink for header text */
+        }
+
+        main {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro h2 {
+            font-size: 2em;
+            color: #aaffff;  /* Neon blue for subheader */
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #b0b0b0;  /* Light gray text */
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background-color: #2a2a2a;  /* Dark gray for project containers */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #ffdd57;  /* Neon yellow for project titles */
+        }
+
+        .project p {
+            font-size: 1.1em;
+            color: #b0b0b0;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #121212;
+            color: #ff17f4;  /* Neon pink for links */
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .project a:hover {
+            background-color: #03a9f4;  /* Neon blue hover effect */
+        }
+
+        footer {
+            background-color: #121212;
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffdd57;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Terminal Chat Box Styles (Neon Cyberpunk) */
+        #terminal-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 400px;
+            max-height: 600px;
+            background-color: #1e1e1e;  /* Dark background for the terminal */
+            color: #00ff00;  /* Neon green for text */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #terminal-chat .chat-output {
+            overflow-y: auto;
+            flex-grow: 1;
+            margin-bottom: 10px;
+            max-height: 450px;
+            white-space: pre-wrap;
+            color: #00ff00;  /* Neon green output */
+        }
+
+        #terminal-chat .chat-input {
+            display: flex;
+        }
+
+        #terminal-chat input {
+            flex-grow: 1;
+            background-color: #121212;
+            color: #ffdc00;  /* Neon yellow for input text */
+            border: 1px solid #ffdc00;
+            padding: 10px;
+            font-size: 1rem;
+            font-family: 'Courier New', monospace;
+            border-radius: 4px;
+        }
+
+        #terminal-chat button {
+            background-color: #03a9f4;  /* Neon blue for button */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #terminal-chat button:hover {
+            background-color: #0288d1;  /* Slightly darker neon blue on hover */
+        }
+
+        /* Media Query to hide the terminal on mobile devices */
+        @media (max-width: 767px) {
+            #terminal-chat {
+                display: none;  /* Hides the terminal on mobile screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Its Lit!</h1>
+        <p>Welcome to ITSLIT.BET</p>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2></h2>
+            <p></p>
+        </section>
+
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="project-list">
+                <div class="project">
+                    <h3>QuackBot</h3>
+                    <p>Quack Bot is a discord bot that runs my discord and deploys this website on an Arch based linux server in the cloud.</p>
+                    <a href="https://github.com/DuckyDuckerson/qbot.git" target="_blank">View on GitHub</a>
+                </div>
+                <div class="project">
+                    <h3>Type Writer</h3>
+                    <a href="https://github.com/DuckyDuckerson/typewriter.git" target="_blank">View on GitHub</a>
+                </div>
+                <div class="project">
+                    <h3>UserVol</h3>
+                    <a href="https://github.com/DuckyDuckerson/UserVol.git" target="_blank">View on GitHub</a>
+                </div>
+                    <div class="project">
+                    <h3>Rust Playground</h3>
+                    <a href="https://github.com/DuckyDuckerson/rustplayground.git" target="_blank">View on GitHub</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/DuckyDuckerson" target="_blank">GitHub</a> | 
+        <a href="mailto:Ducky@itslit.bet">Email</a> |
+        <a href="https://discord.gg/gVcX7mV5nc" target="_blank">Discord</a> |
+        <a href="https://www.reddit.com/user/Ducky_Duckerson/" target="_blank">Reddit</a> |
+        <a href="https://bsky.app/profile/duckyduckerson.bsky.social" target="_blank">BlueSky</a>
+    </footer>
+
+    <div id="terminal-chat">
+        <div class="chat-output" id="chat-output">
+            Welcome to ITSLIT.BET! Type 'help' for a list of commands.
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Enter command...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatOutput = document.getElementById('chat-output');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-btn');
+
+
+        function processInput(input) {
+            let response = '';
+
+            if (input === 'help') {
+                response = 'Commands available: help, clear, about, projects, contact, btw\n-------------------------------------------';
+            } else if (input === 'about') {
+                response = 'My name is James, I am a linux enthusiast and a terrible software dev. I love coding and learning new things. My main focus on learning Linux and C. I am aspiring to be a Linux Systems Administrator.\n-------------------------------------------';
+            } else if (input === 'projects') {
+                response = 'View my projects on GitHub: https://github.com/DuckyDuckerson\n-------------------------------------------';
+            } else if (input === 'contact') {
+                response = 'Email me at: Ducky@itslit.bet\n-------------------------------------------';
+            } else if (input === 'ls') {
+                response = 'Desktop\nDocuments\nDownloads\nMusic\nPictures\nVideos\n-------------------------------------------';
+            } else if (input === 'cd /') {
+                response = 'You are now at the root directory...\njk not really lol\n-------------------------------------------';
+            } else if (input === 'cd Desktop') {
+                response = 'Do you just spend your free time just seeing if a stupid fake terminal on a website really works?\n-------------------------------------------';
+            } else if (input === 'cd Documents') {
+                response = '...\n-------------------------------------------';
+            } else if (input === 'cd Downloads') {
+                response = 'Yeah no. There is no downloads lol...\n-------------------------------------------';
+            } else if (input === 'cd Music') {
+                response = 'You are now at the Music directory...\njk not really lol\n-------------------------------------------';
+            } else if (input === 'cd Pictures') {
+                response = 'There is so much porn in here\n-------------------------------------------';
+            } else if (input === 'cd Videos') {
+                response = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs\n-------------------------------------------';
+            } else if (input === 'cd /dev/null') {
+                response = 'You are now at the /dev/null directory...\njk not really lol\n-------------------------------------------';
+            } else if (input === 'sudo pacman -Syu') {
+                response = 'Updating system...\n-------------------------------------------';
+            } else if (input === 'pacman -Syu') {
+                response = 'error: you cannot perform this operation unless you are root.\n-------------------------------------------';
+            } else if (input === 'rm -rf --no-preserve-root /') {
+                response = 'Oh no everything is being deleted! How can this be! Goodbye cruel world. This webpage was not long for this world!\nOh no\nI am fading\n...\nDid you actually believe that would work?\n-------------------------------------------';
+            } else if (input === "penis") {
+                response = 'Pen15.\n-------------------------------------------';
+            } else if (input === 'btw') {
+                response = 'OS: Arch Linux\nHardware: Ryzen 7 5800x, RTX 3060\nUptime: 420 days, 69 hours, 69 minutes\nShell: zsh\nEditor: nvim\nDesktop: i3wm\nTerminal: alacritty\nLanguage: Python, Bash, C, HTML, CSS, Javascript, Rust, Lua\n-------------------------------------------';
+            } else if (input === 'clear') {
+                chatOutput.innerHTML = '';
+                return;
+            } else {
+                response = `Command '${input}' not recognized. Try typing 'help' for options.\n-------------------------------------------`;
+            }
+
+            chatOutput.innerHTML += `<br><span class="user-command">> ${input}</span>`;
+            chatOutput.innerHTML += `<br>${response}`;
+            chatOutput.scrollTop = chatOutput.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', () => {
+            const input = userInput.value.trim();
+            if (input) {
+                processInput(input);
+                userInput.value = '';
+            }
+        });
+
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                sendButton.click();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
