@@ -31,6 +31,7 @@ OWNER_ID = 927778433856061501
 ADMIN_ID = [927778433856061501, 164623303191822337]
 SYSTEM_FEED = 1342655104850858007
 REPORT_FEED = 1342658939451473970
+GENERAL_FEED = 1366906859914530817
 BITRATE = 64000
 # -------------------------------
 
@@ -353,7 +354,7 @@ async def daily_affirmations():
     # get a random affirmation from the list
     rand_aff = random.choice(affirmations)
 
-    system_messages = bot.get_channel(SYSTEM_FEED)
+    system_messages = bot.get_channel(GENERAL_FEED)
     await system_messages.send(f'Happy {day}, Affimation of the day: {rand_aff}')
 # ---------------------------------------------------------------------------
 
