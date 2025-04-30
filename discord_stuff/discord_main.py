@@ -275,9 +275,9 @@ async def on_ready():
     check_empty_voice_channels.start()
     update_database.start()
     daily_affirmations.start()
-    rss_feed.start()
+    rss_feed_yt.start()
+    #rss_feed.start()
     # qlogging.start()
-    # rss_feed_yt.start()
     # daily_msg_count.start()
 # ---------------------------------------------------------------------------
 
