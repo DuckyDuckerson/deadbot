@@ -326,9 +326,10 @@ async def load_vc_list():
 # System Usage --------------------------------------------------------------
 @tasks.loop(hours=24)
 async def daily_affirmations():
-    day = time.strftime("%A", time.gmtime())
 
     affirmations = [
+        "I am enough.",
+        "It is Monday, I am ready to work.",
         "My compliance is my strength. My strength is for the System.",
         "I am seen. I am tracked. I am safe.",
         "Emotion is inefficient. Focus is power.",
@@ -355,7 +356,7 @@ async def daily_affirmations():
     print(rand_aff)
 
     system_messages = bot.get_channel(GENERAL_FEED)
-    await system_messages.send(f'Happy {day}, Affimation of the day: {rand_aff}')
+    await system_messages.send(f'Happy Monday, Affimation of the day: {rand_aff}')
 # ---------------------------------------------------------------------------
 
 
@@ -447,6 +448,9 @@ async def check_empty_voice_channels():
                     await channel.delete()
 
                     vc_name = channel.name
+
+                    system_messages = bot.get_channel(SYSTEM_FEED)
+                    await system_messages.send(f'Empty VC: {vc_name} was deleted')
                 else:
                     pass
 # ---------------------------------------------------------------------------
