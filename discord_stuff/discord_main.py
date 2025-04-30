@@ -269,9 +269,6 @@ async def on_ready():
     system_messages = bot.get_channel(SYSTEM_FEED)
     await system_messages.send(f'# Bot Started {start_time}')
 
-    synced_commands = await tree.sync()
-    print(f'Successfully synced {len(synced_commands)} commands')
-
     check_empty_voice_channels.start()
     print("Checking empty voice channels every 60 seconds")
     update_database.start()
@@ -280,6 +277,10 @@ async def on_ready():
     print("Sending daily affirmations every 1 hour")
     rss_feed_yt.start()
     print("Checking youtube feed every 30 seconds")
+
+    synced_commands = await tree.sync()
+    print(f'Successfully synced {len(synced_commands)} commands')
+
     # qlogging.start()
     # daily_msg_count.start()
 # ---------------------------------------------------------------------------
