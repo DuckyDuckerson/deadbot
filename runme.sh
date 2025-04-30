@@ -1,3 +1,6 @@
+echo "Updating system..."
+git pull
+
 if [ ! -f duckgpt/.env ]; then
     echo "Creating .env file"
     touch duckgpt/.env
