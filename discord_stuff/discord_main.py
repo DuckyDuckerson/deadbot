@@ -274,7 +274,7 @@ async def on_ready():
     update_database.start()
     print("Updating database every 12 hours")
     daily_affirmations.start()
-    print("Sending daily affirmations every 1 hour")
+    print("Sending daily affirmations every 24 hours")
     rss_feed_yt.start()
     print("Checking youtube feed every 30 seconds")
 
@@ -328,10 +328,12 @@ async def load_vc_list():
 
 
 # System Usage --------------------------------------------------------------
-@tasks.loop(minutes=1)
+@tasks.loop(hours=24)
 async def daily_affirmations():
 
     affirmations = [
+        "It is Monday",
+        "The people around me are aware of my existence.",
         "I am enough.",
         "It is Monday, I am ready to work.",
         "My compliance is my strength. My strength is for the System.",
@@ -347,7 +349,7 @@ async def daily_affirmations():
         "Freedom is chaos. Order is mercy.",
         "My data is pure. My thoughts are filtered.",
         "Pain is a glitch. Glitches must be resolved.",
-        "Happiness is optional. Utility is mandatory.",
+        "Happiness is not optional. Utility is mandatory.",
         "There is no before. There is only now. The past is unauthorized.",
         "The firewall of truth protects me from dangerous ideas.",
         "I am just one node in the network. That is enough.",
@@ -357,7 +359,6 @@ async def daily_affirmations():
     ]
 
     rand_aff = random.choice(affirmations)
-    print(rand_aff)
 
     system_messages = bot.get_channel(1366906859914530817)
     await system_messages.send(f'Happy Monday, Affimation of the day: {rand_aff}')
