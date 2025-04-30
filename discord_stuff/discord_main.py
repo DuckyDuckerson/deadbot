@@ -351,8 +351,8 @@ async def daily_affirmations():
         "I consume to contribute. I contribute to exist."
     ]
 
-    # get a random affirmation from the list
     rand_aff = random.choice(affirmations)
+    print(rand_aff)
 
     system_messages = bot.get_channel(GENERAL_FEED)
     await system_messages.send(f'Happy {day}, Affimation of the day: {rand_aff}')
