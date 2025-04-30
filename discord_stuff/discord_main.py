@@ -447,9 +447,6 @@ async def check_empty_voice_channels():
                     await channel.delete()
 
                     vc_name = channel.name
-
-                    system_messages = bot.get_channel(SYSTEM_FEED)
-                    await system_messages.send(f'Empty VC: {vc_name} was deleted')
                 else:
                     pass
 # ---------------------------------------------------------------------------
