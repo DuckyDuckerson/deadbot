@@ -360,7 +360,7 @@ async def daily_affirmations():
     print(rand_aff)
 
     system_messages = bot.get_channel(1366906859914530817)
-    await system_messages.send(f'Happy Monday, Affimation of the day: It is Monday, I am ready to work.')
+    await system_messages.send(f'Happy Monday, Affimation of the day: {rand_aff}')
 # ---------------------------------------------------------------------------
 
 
