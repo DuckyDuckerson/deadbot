@@ -276,7 +276,6 @@ async def on_ready():
     update_database.start()
     daily_affirmations.start()
     rss_feed_yt.start()
-    #rss_feed.start()
     # qlogging.start()
     # daily_msg_count.start()
 # ---------------------------------------------------------------------------
@@ -324,7 +323,7 @@ async def load_vc_list():
 
 
 # System Usage --------------------------------------------------------------
-@tasks.loop(hours=24)
+@tasks.loop(minutes=1)
 async def daily_affirmations():
 
     affirmations = [
