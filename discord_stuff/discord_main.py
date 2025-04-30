@@ -355,7 +355,7 @@ async def daily_affirmations():
     rand_aff = random.choice(affirmations)
     print(rand_aff)
 
-    system_messages = bot.get_channel(GENERAL_FEED)
+    system_messages = bot.get_channel(1366906859914530817)
     await system_messages.send(f'Happy Monday, Affimation of the day: {rand_aff}')
 # ---------------------------------------------------------------------------
 
@@ -364,73 +364,34 @@ async def daily_affirmations():
 @tasks.loop(hours=yt_feed_time)
 async def rss_feed_yt():
 
-    yt_feed_list = ['UCxuR5PaBjID0GDJYkJk-VaQ']
-    channel_list = [1366929570032255107]
-    channel_names = ['DMDWP']
+    # yt_feed_list = ['UCxuR5PaBjID0GDJYkJk-VaQ']
+    # channel_list = [1366929570032255107]
+    # channel_names = ['DMDWP']
 
-    for yt_feed, channel, ch_name in zip(yt_feed_list, channel_list, channel_names):
+    # for yt_feed, channel, ch_name in zip(yt_feed_list, channel_list, channel_names):
 
-        feed = feedparser.parse(f'https://www.youtube.com/feeds/videos.xml?channel_id={yt_feed}')
+    feed = feedparser.parse(f'https://www.youtube.com/feeds/videos.xml?channel_id={'UCxuR5PaBjID0GDJYkJk-VaQ'}')
 
-        most_recent = feed.entries[0]
-        link = most_recent.link
+    most_recent = feed.entries[0]
+    link = most_recent.link
 
-        id = most_recent.id
-        if not os.path.exists('rss_feed_yt.txt'):
-            with open('rss_feed_yt.txt', 'w') as f:
-                f.write(id)
-                youtube = bot.get_channel(channel)
-                await youtube.send(link)
-        else:
-            with open('rss_feed_yt.txt', 'r') as f:
-                lines = f.readlines()
+    id = most_recent.id
+    if not os.path.exists('rss_feed_yt.txt'):
+        with open('rss_feed_yt.txt', 'w') as f:
+            f.write(id)
+            youtube = bot.get_channel(1366929570032255107)
+            await youtube.send(link)
+    else:
+        with open('rss_feed_yt.txt', 'r') as f:
+            lines = f.readlines()
 
-            id_exists = any(id.strip() == line.strip() for line in lines)
+        id_exists = any(id.strip() == line.strip() for line in lines)
 
-            if not id_exists:
-                with open('rss_feed_yt.txt', 'a') as f:
-                    f.write(id + '\n')
-                youtube = bot.get_channel(channel)
-                await youtube.send(link)
-            else:
-                system_messages = bot.get_channel(SYSTEM_FEED)
-                await system_messages.send(f'YT_FEED: No new videos found for {ch_name}')
-# ---------------------------------------------------------------------------
-
-
-# rss feed ------------------------------------------------------------------
-@tasks.loop(seconds=rss_time)
-async def rss_feed():
-
-    feed_list = ['https://knightedgemedia.com/feed/']
-    channel_list = [1328212148572131390]
-    channel_names = ['KnightEdgeMedia']
-
-    for feed, channel, ch_name in zip(feed_list, channel_list, channel_names):
-
-        feed = feedparser.parse(f'{feed}')
-
-        most_recent = feed.entries[0]
-        link = most_recent.link
-
-        id = most_recent.id
-        if not os.path.exists('rss_feed.txt'):
-            with open('rss_feed.txt', 'w') as f:
-                f.write(id)
-                youtube = bot.get_channel(channel)
-                await youtube.send(link)
-        else:
-            with open('rss_feed.txt', 'r') as f:
-                lines = f.readlines()
-
-            id_exists = any(id.strip() == line.strip() for line in lines)
-            if not id_exists:
-                with open('rss_feed.txt', 'a') as f:
-                    f.write(id + '\n')
-                youtube = bot.get_channel(channel)
-                await youtube.send(link)
-            else:
-                pass
+        if not id_exists:
+            with open('rss_feed_yt.txt', 'a') as f:
+                f.write(id + '\n')
+            youtube = bot.get_channel(1366929570032255107)
+            await youtube.send(link)
 # ---------------------------------------------------------------------------
 
 
