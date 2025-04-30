@@ -389,14 +389,14 @@ async def rss_feed_yt():
     else:
         with open('rss_feed_yt.txt', 'r') as f:
             lines = f.readlines()
+            if id not in lines:
+                with open('rss_feed_yt.txt', 'a') as f:
+                    f.write(id)
+                    youtube = bot.get_channel(1366929570032255107)
+                    await youtube.send(link)
+            else:
+                pass
 
-        id_exists = any(id.strip() == line.strip() for line in lines)
-
-        if not id_exists:
-            with open('rss_feed_yt.txt', 'a') as f:
-                f.write(id + '\n')
-            youtube = bot.get_channel(1366929570032255107)
-            await youtube.send(link)
 # ---------------------------------------------------------------------------
 
 
